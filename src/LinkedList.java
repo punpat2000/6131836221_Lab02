@@ -166,23 +166,15 @@ public class LinkedList {
 		if (!itr.hasNext())
 			return null;
 		while(itr.hasNext()) {
-			System.out.println(((MyListIterator) i).currentNode.data+"before");
-			
 			if (itr.currentNode.nextNode == ((MyListIterator) i).currentNode) {
-				System.out.println(itr.currentNode.data+"before");
-				//this.printList();
 				this.remove(itr);
-				System.out.println(itr.currentNode.data+"removedd");
 				if(!itr.hasNext()) {
 					Iterator itr2 = new MyListIterator(this.header);
 					if(!itr2.hasNext()) return itr2;
 					itr2.next();
 					return itr2;
 				}
-				//itr.next();
-				System.out.println();
-				//this.printList();
-				System.out.println("here");
+				itr.next();
 				return itr;
 			}
 			itr.next();

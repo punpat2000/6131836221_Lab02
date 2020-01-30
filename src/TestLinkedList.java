@@ -198,7 +198,7 @@ public class TestLinkedList {
 		itr.next();
 		
 		
-		System.out.println("\nthis "+itr.currentNode.data);
+		
 		//remove jane
 		MyListIterator j1 = (MyListIterator)(list.removeAt(itr));
 		Contact c = (Contact)(j1.currentNode.data);

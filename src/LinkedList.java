@@ -88,8 +88,6 @@ public class LinkedList {
 	// To be completed by students.
 	public int size() throws Exception {
 		Iterator itr = new MyListIterator(header);
-		if (!itr.hasNext())
-			return 0;
 		int count = 0;
 		while (itr.hasNext()) {
 			itr.next();
@@ -117,13 +115,9 @@ public class LinkedList {
 	// To be completed by students.
 	public Iterator findPosition(String name) throws Exception {
 		Iterator itr = new MyListIterator(header);
-		if (!itr.hasNext())
-			return null;
-
 		while (itr.hasNext()) {
 			String temp = ((Contact) itr.next()).name;
-			if (temp.equals(name))
-				return itr;
+			if (temp.equals(name)) return itr;
 		}
 		return null;
 	}
@@ -160,17 +154,15 @@ public class LinkedList {
 	// If i is marking an illegal position that cannot be removed, just return null.
 	// To be completed by students.
 	public Iterator removeAt(Iterator i) throws Exception {
-		if (i == null)
-			return null;
+		if (i == null) return null;
 		MyListIterator itr = new MyListIterator(this.header);
-		if (!itr.hasNext())
-			return null;
 		while(itr.hasNext()) {
 			if (itr.currentNode.nextNode == ((MyListIterator) i).currentNode) {
 				this.remove(itr);
 				if(!itr.hasNext()) {
 					Iterator itr2 = new MyListIterator(this.header);
-					if(!itr2.hasNext()) return itr2;
+					if(!itr2.hasNext())
+						return itr2;
 					itr2.next();
 					return itr2;
 				}
@@ -179,7 +171,6 @@ public class LinkedList {
 			}
 			itr.next();
 		}
-
 		return null;
 	}
 
